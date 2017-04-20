@@ -1,0 +1,4 @@
+# py-trello
+-e git+git://github.com/sgaynetdinov/py-trello.git@736eecc8f76e622c167b23091757ea6b48e876ca#egg=trello
+py-vkontakte
+requests
