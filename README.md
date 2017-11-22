@@ -18,6 +18,8 @@ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 export WORKON_HOME=/path/to/directory
 ```
 
+- Edit `run.sh` file path to `activate` script in your virtual environment
+
 - Create new virtual environment
 ```bash
 mkvirtualenv trello-vk
@@ -47,11 +49,16 @@ workon trello-vk  # in case you've logged out
 python /path/to/your/project/main.py
 ```
 
+- Make `run.sh` executable:
+```bash
+chmod +x run.sh
+```
+
 - Create a cron job, executing every 5 minutes:
 ```bash
 crontab -e
 ```
 add this to the end of your `*/crontab`
 ```
- */5 * * * * workon trello-vk && python /path/to/repo/main.py && deactivate && echo "done"
+ */5 * * * * /path/to/repo/run.sh
 ```
