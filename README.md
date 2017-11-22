@@ -41,4 +41,11 @@ ACCESS_TOKEN = AAAAAAAA
 GROUP = AAAAAAAA
 ```
 
-- Put a cron job, executing every 5 minutes to run `trello_vk.sh`
+- Create a cron job, executing every 5 minutes:
+```bash
+crontab -e
+```
+add this to the end of your `*/crontab`
+```
+*/5 * * * * workon trello-vk && python /path/to/your/project/main.py
+```
