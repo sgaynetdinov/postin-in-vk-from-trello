@@ -41,11 +41,17 @@ ACCESS_TOKEN = AAAAAAAA
 GROUP = AAAAAAAA
 ```
 
+- Check if everything runs without any errors:
+```bash
+workon trello-vk  # in case you've logged out
+python /path/to/your/project/main.py
+```
+
 - Create a cron job, executing every 5 minutes:
 ```bash
 crontab -e
 ```
 add this to the end of your `*/crontab`
 ```
-*/5 * * * * workon trello-vk && python /path/to/your/project/main.py
+ */5 * * * * workon trello-vk && python /path/to/repo/main.py && deactivate && echo "done"
 ```
