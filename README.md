@@ -31,8 +31,6 @@ pip install -r requirements.txt
 
 - In directory with cloned repo create file `config.ini` and fill it w/ your settings like this:
 ```ini
-[DEFAULT]
-
 [TRELLO]
 KEY = AAAAAAAA
 TOKEN = AAAAAAAA
@@ -58,7 +56,7 @@ chmod +x run.sh
 ```bash
 crontab -e
 ```
-add this to the end of your `*/crontab`
+and add this:
 ```
- */5 * * * * /path/to/repo/run.sh
+ */5 * * * * bash /path/to/repo/run.sh
 ```
