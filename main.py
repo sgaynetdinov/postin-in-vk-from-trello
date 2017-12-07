@@ -59,3 +59,4 @@ if __name__ == '__main__':
         photo_items = Photo.upload_wall_photos_for_group(group.id, attachment_items.items())
         group.wall_post(message=card.name + '\n' + card.description, attachments=photo_items)
         card.set_due_complete()
+        card.set_closed(True)
