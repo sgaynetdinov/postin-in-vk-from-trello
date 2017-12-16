@@ -40,7 +40,7 @@ def is_card_can_published(trello_card):
     card_due_unixtime = trello_card.due_date.replace(tzinfo=None).timestamp()
 
     delta = card_due_unixtime - now_unixtime
-    return True if delta <= 0 else False
+    return True if delta <= 0 and trello_card.is_due_complete else False
 
 
 if __name__ == '__main__':
@@ -59,4 +59,3 @@ if __name__ == '__main__':
         photo_items = Photo.upload_wall_photos_for_group(group.id, attachment_items.items())
         group.wall_post(message=card.name + '\n' + card.description, attachments=photo_items)
         card.set_due_complete()
-        card.set_closed(True)
