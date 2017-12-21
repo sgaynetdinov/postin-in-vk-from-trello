@@ -40,16 +40,16 @@ def is_card_can_published(trello_card):
     card_due_unixtime = trello_card.due_date.replace(tzinfo=None).timestamp()
 
     delta = card_due_unixtime - now_unixtime
-    return True if delta <= 0 else False
+    return True if delta <= 0 and trello_card.is_due_complete else False
 
 
 if __name__ == '__main__':
     vk.set_access_token(config.VK_ACCESS_TOKEN)
-    group = vk.get_group('ufakino')
+    group = vk.get_group(config.VK_GROUP)
 
     client = trello.TrelloClient(api_key=config.TRELLO_KEY, token=config.TRELLO_TOKEN)
 
-    board = client.get_board('35xi1yEe')
+    board = client.get_board(config.TRELLO_BOARD)
 
     card_items = (card for card in board.open_cards() if is_card_can_published(card))
 
